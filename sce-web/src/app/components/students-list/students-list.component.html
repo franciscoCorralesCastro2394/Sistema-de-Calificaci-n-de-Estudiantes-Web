@@ -1,3 +1,10 @@
-<p>
-  students-list works!
-</p>
+<br>
+<br>
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center " *ngFor="let student of listEstudiantes; let i=index">
+            {{student.nombre + ' - ' + student.curso}}
+            <span class="badge badge-primary badge-pill">{{i + 1}}</span>
+        </li>
+    </ul>
+</div>
