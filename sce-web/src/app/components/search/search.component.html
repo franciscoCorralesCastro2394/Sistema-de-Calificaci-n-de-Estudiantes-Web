@@ -1,3 +1,27 @@
-<p>
-  search works!
-</p>
+<div class="container">
+    <div class="input-group mb-3 mt-3">
+        <input type="text" [(ngModel)]="term" class="form-control" placeholder="Nombre del curso o profesor" aria-label="Nombre o profesor" aria-describedby="button-addon2" (keyup.enter)="searchCourses(term)">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" (click)="searchCourses(term)" id="button-addon2">Buscar</button>
+        </div>
+    </div>
+</div>
+
+<div class="card-colums" *ngIf="showedList || showedList.length > 0">
+    <div class="card bg-primary text-white text-center p-3" *ngFor="let curso of showedList; let i=index">
+        <blockquote class="blockquote mb-0">
+            <p> {{ curso.nombre }}</p>
+            <br>
+            <p> {{ curso.profesor }}</p>
+            <footer class="blockquote-footer text-white">
+                <small>
+          <cite title="Source Title">{{ curso.anyo}}</cite>
+        </small>
+            </footer>
+        </blockquote>
+    </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="showedList || showedList.length == 0">
+    NO EXISTEN CURSOS
+</div>
