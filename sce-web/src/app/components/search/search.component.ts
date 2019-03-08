@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
  private showedList:any[] = [];
   constructor(private dataService: DataService) { 
     this.cursos = dataService.getCoursesList();
+    console.log(this.cursos);
   }
 
   ngOnInit() {
